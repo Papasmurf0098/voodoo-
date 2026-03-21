@@ -253,7 +253,7 @@ The app avoids collapsing ABV and proof into one naive field.
 ## Scalable styling system
 
 - dark background with restrained warm highlight color
-- Fraunces for display typography
+- Manrope for display typography
 - Inter for UI/body text
 - shared card system (`glass-panel`, `info-card`, `drink-card`)
 - chip/badge tokens
