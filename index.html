@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nightcap Library</title>
+    <meta
+      name="description"
+      content="A premium dark tasting-reference library for wines, spirits, cocktails, beer, RTD, mocktails, soft drinks, water, and whiskey."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero dashboard-panel">
+        <div class="hero-copy-block">
+          <div class="topbar">
+            <p class="eyebrow">Nightcap Library</p>
+            <span class="topbar-pill">Local JSON · GitHub Pages · No backend</span>
+          </div>
+          <h1>Modern tasting dashboard for deep drink profiles.</h1>
+          <p class="hero-copy">
+            Search a refined local archive of wines, spirits, cocktails, beer, RTD, mocktails,
+            soft drinks, water, and whiskey—with exact tasting notes up front and research caveats
+            just below the fold.
+          </p>
+          <div class="hero-chip-row">
+            <span class="hero-chip">Whiskey-aware taxonomy</span>
+            <span class="hero-chip">ABV / proof caveats</span>
+            <span class="hero-chip">Ambiguity & confidence badges</span>
+          </div>
+        </div>
+
+        <div class="hero-side-grid">
+          <section class="metric-card accent">
+            <span class="metric-label">Primary flow</span>
+            <strong>Browse → open → return</strong>
+            <p>Search, read a profile, and keep your library state intact.</p>
+          </section>
+          <section class="metric-card">
+            <span class="metric-label">Reference mode</span>
+            <strong>Tasting first</strong>
+            <p>Methodology stays available, but secondary to sensory usefulness.</p>
+          </section>
+          <section class="metric-card">
+            <span class="metric-label">Whiskey support</span>
+            <strong>Families, styles, caveats</strong>
+            <p>Built for flights, picks, cask strength, batch shifts, and interpretation notes.</p>
+          </section>
+        </div>
+      </header>
+
+      <main id="app" class="app"></main>
+    </div>
+
+    <template id="library-template">
+      <section class="library-view">
+        <div class="toolbar dashboard-panel">
+          <div class="toolbar-header">
+            <div>
+              <p class="section-label">Library controls</p>
+              <h2 class="toolbar-title">Search and filter the archive</h2>
+            </div>
+            <div class="toolbar-note">Fast local search across taxonomy, tasting notes, and whiskey style terms.</div>
+          </div>
+
+          <label class="search-field">
+            <span class="sr-only">Search drinks</span>
+            <input id="searchInput" type="search" placeholder="Search name, producer, whiskey style, flavor note…" />
+          </label>
+          <div id="familyFilters" class="filter-row" aria-label="Family filters"></div>
+          <div id="categoryFilters" class="filter-row secondary" aria-label="Category filters"></div>
+        </div>
+
+        <section class="library-meta">
+          <div>
+            <p class="section-label">Library</p>
+            <h2 id="resultHeading">Browse drinks</h2>
+          </div>
+          <p id="resultSummary" class="muted"></p>
+        </section>
+
+        <section id="cardGrid" class="card-grid" aria-live="polite"></section>
+      </section>
+    </template>
+
+    <template id="detail-template">
+      <article class="detail-view">
+        <button id="backButton" class="back-button">← Back to library</button>
+        <section class="detail-hero dashboard-panel">
+          <div class="detail-title-row">
+            <div>
+              <p id="detailEyebrow" class="eyebrow"></p>
+              <h2 id="detailName"></h2>
+              <p id="detailSubhead" class="detail-subhead"></p>
+            </div>
+            <div id="detailTopBadges" class="badge-row"></div>
+          </div>
+          <div class="detail-facts" id="detailFacts"></div>
+        </section>
+
+        <section class="detail-body two-column">
+          <div class="primary-column">
+            <section class="info-card">
+              <h3>Tasting profile</h3>
+              <dl id="profileFields" class="definition-list"></dl>
+            </section>
+
+            <section class="info-card">
+              <h3>Pairings</h3>
+              <div id="pairingsGrid" class="pairings-grid"></div>
+            </section>
+
+            <section class="info-card" id="signatureSection">
+              <h3>Signature traits</h3>
+              <p id="signatureTraits"></p>
+            </section>
+          </div>
+
+          <aside class="secondary-column">
+            <details class="info-card research-card" open>
+              <summary>
+                <div>
+                  <p class="section-label">Secondary context</p>
+                  <h3>Research notes</h3>
+                </div>
+                <span class="summary-hint">Methodology and caveats</span>
+              </summary>
+              <div class="research-content">
+                <div id="researchBadges" class="badge-row badge-row-wrap"></div>
+                <dl id="researchFields" class="definition-list compact"></dl>
+              </div>
+            </details>
+          </aside>
+        </section>
+      </article>
+    </template>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
