@@ -8,7 +8,6 @@ const state = {
   query: '',
   family: 'All',
   category: 'All',
-  pendingScrollRestore: false,
 };
 
 const familyOrder = ['All', 'Whiskey', 'Wine', 'Spirit', 'Cocktail', 'Beer', 'RTD', 'Mocktail', 'Soft Drink', 'Water'];
@@ -34,14 +33,23 @@ const badgeLabelMap = {
 };
 
 init();
-window.addEventListener('popstate', render);
-
-async function init() {
-  const response = await fetch('./data/drinks.json');
-  const data = await response.json();
-  state.entries = data.entries.map(enrichEntry);
+window.addEventListener('popstate', () => {
   hydrateStateFromUrl();
   render();
+});
+
+async function init() {
+  app.innerHTML = '<div class="empty-state">Loading drink profiles…</div>';
+  try {
+    const response = await fetch('./data/drinks.json');
+    if (!response.ok) throw new Error(`Failed to load data (${response.status})`);
+    const data = await response.json();
+    state.entries = data.entries.map(enrichEntry);
+    hydrateStateFromUrl();
+    render();
+  } catch (error) {
+    app.innerHTML = `<div class="empty-state">Unable to load the drink library. ${error.message}</div>`;
+  }
 }
 
 function enrichEntry(entry) {
@@ -93,6 +101,20 @@ function updateUrl(next = {}) {
   hydrateStateFromUrl();
 }
 
+function replaceUrl(next = {}) {
+  const params = new URLSearchParams(window.location.search);
+  Object.entries(next).forEach(([key, value]) => {
+    if (value === null || value === undefined || value === '' || value === 'All') {
+      params.delete(key);
+    } else {
+      params.set(key, value);
+    }
+  });
+  const url = `${window.location.pathname}${params.toString() ? `?${params}` : ''}`;
+  history.replaceState({}, '', url);
+  hydrateStateFromUrl();
+}
+
 function render() {
   app.innerHTML = '';
   const drinkId = currentDetailId();
@@ -116,21 +138,23 @@ function renderLibrary() {
   searchInput.addEventListener('input', (event) => {
     state.query = event.target.value;
     saveScroll(0);
-    updateUrl({ q: state.query, family: state.family, category: state.category, drink: null });
-    render();
+    replaceUrl({ q: state.query, family: state.family, category: state.category, drink: null });
+    refreshLibraryResults();
   });
 
   buildFilters(familyFilters, familyOrder, state.family, (value) => {
     state.family = value;
     state.category = 'All';
-    updateUrl({ q: state.query, family: state.family, category: null, drink: null });
+    saveScroll(0);
+    replaceUrl({ q: state.query, family: state.family, category: null, drink: null });
     render();
   });
 
   const categories = ['All', ...new Set(state.entries.filter((entry) => state.family === 'All' || entry.family === state.family).map((entry) => entry.category))];
   buildFilters(categoryFilters, categories, state.category, (value) => {
     state.category = value;
-    updateUrl({ q: state.query, family: state.family, category: state.category, drink: null });
+    saveScroll(0);
+    replaceUrl({ q: state.query, family: state.family, category: state.category, drink: null });
     render();
   });
 
@@ -146,6 +170,24 @@ function renderLibrary() {
 
   app.appendChild(fragment);
   restoreScroll();
+}
+
+function refreshLibraryResults() {
+  const cardGrid = document.querySelector('#cardGrid');
+  const resultSummary = document.querySelector('#resultSummary');
+  const resultHeading = document.querySelector('#resultHeading');
+  if (!cardGrid) return;
+
+  const results = filterEntries();
+  resultHeading.textContent = state.query ? `Results for "${state.query}"` : 'Browse drinks';
+  resultSummary.textContent = `${results.length} profiles across premium tasting-reference categories.`;
+
+  cardGrid.innerHTML = '';
+  if (!results.length) {
+    cardGrid.innerHTML = '<div class="empty-state">No drinks matched that combination. Try a broader category or fewer tasting keywords.</div>';
+  } else {
+    results.forEach((entry) => cardGrid.appendChild(createCard(entry)));
+  }
 }
 
 function buildFilters(container, values, activeValue, onSelect) {
@@ -194,10 +236,7 @@ function createCard(entry) {
 function buildInlineBadges(entry) {
   const badges = [];
   if (entry.whiskey?.displayTags?.length) {
-    badges.push(...entry.whiskey.displayTags.slice(0, 2));
-  }
-  if (entry.research?.ambiguityStatus && entry.research.ambiguityStatus !== 'Clear') {
-    badges.push('Ambiguous');
+    badges.push(...entry.whiskey.displayTags.slice(0, 3));
   }
   return badges.slice(0, 3).map((tag) => `<span class="badge">${tag}</span>`).join('');
 }
@@ -212,8 +251,7 @@ function renderDetail(drinkId) {
 
   const fragment = detailTemplate.content.cloneNode(true);
   fragment.querySelector('#backButton').addEventListener('click', () => {
-    updateUrl({ q: state.query, family: state.family, category: state.category, drink: null });
-    render();
+    history.back();
   });
 
   fragment.querySelector('#detailEyebrow').textContent = `${entry.family} · ${entry.category}`;
@@ -224,22 +262,17 @@ function renderDetail(drinkId) {
   buildDetailBadges(entry).forEach((badge) => topBadges.appendChild(badge));
 
   const detailFacts = fragment.querySelector('#detailFacts');
+  const strengthLabel = entry.strength?.abvDisplay ? 'ABV' : 'Strength';
   [
     ['Producer', entry.producer],
     ['Origin', entry.origin?.display],
     ['Subtype', entry.subtype || entry.varietal],
-    ['Strength', formatStrength(entry.strength)],
+    [strengthLabel, formatStrength(entry.strength)],
     ['Proof', entry.strength?.proofDisplay || entry.strength?.proof?.toString()],
   ].filter(([, value]) => value).forEach(([label, value]) => detailFacts.appendChild(createFact(label, value)));
 
   const profileFields = fragment.querySelector('#profileFields');
   [
-    ['Category', entry.category],
-    ['Subtype / Varietal', entry.subtype || entry.varietal],
-    ['Producer', entry.producer],
-    ['Region / Origin', entry.origin?.display],
-    ['ABV / Strength', formatStrength(entry.strength)],
-    ['Proof', entry.strength?.proofDisplay || entry.strength?.proof?.toString()],
     ['Aroma notes', joinList(entry.tasting?.aroma)],
     ['Flavor profile', joinList(entry.tasting?.flavor)],
     ['Body / Texture', entry.tasting?.body],
@@ -330,12 +363,19 @@ function formatStrength(strength) {
   if (strength.display) return strength.display;
   const parts = [];
   if (strength.abvDisplay) parts.push(strength.abvDisplay);
-  if (strength.proofDisplay) parts.push(strength.proofDisplay);
   if (strength.note) parts.push(strength.note);
   return parts.join(' · ');
 }
 
+const displayKeyMap = {
+  spices_flavor_companions: 'Spices / Flavor Companions',
+  proteins: 'Proteins',
+  cheeses: 'Cheeses',
+  cuisines: 'Cuisines',
+};
+
 function startCase(value) {
+  if (displayKeyMap[value]) return displayKeyMap[value];
   return value.replace(/_/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
