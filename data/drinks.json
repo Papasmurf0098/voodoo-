@@ -1,0 +1,624 @@
+{
+  "entries": [
+    {
+      "id": "angels-envy-port-cask",
+      "name": "Angel's Envy Kentucky Straight Bourbon Finished in Port Wine Barrels",
+      "family": "Whiskey",
+      "category": "Bourbon",
+      "subtype": "Port-finished Kentucky straight bourbon",
+      "producer": "Angel's Envy / Louisville Distilling Co.",
+      "origin": { "country": "USA", "region": "Kentucky", "display": "Kentucky, USA" },
+      "strength": {
+        "abv": 43.3,
+        "abvDisplay": "43.3% ABV",
+        "proof": 86.6,
+        "proofDisplay": "86.6 proof",
+        "confirmation": "exact"
+      },
+      "tasting": {
+        "aroma": ["Vanilla", "maple syrup", "ripe red fruit", "raisin", "light toasted oak"],
+        "flavor": ["Caramel", "dried berries", "orange peel", "cocoa", "baking spice", "soft wine sweetness"],
+        "body": "Medium-bodied, rounded, silky rather than dense.",
+        "finish": "Medium; red fruit, vanilla, and gentle oak spice linger."
+      },
+      "pairings": {
+        "proteins": ["Prosciutto", "glazed pork loin", "duck breast", "smoked turkey"],
+        "spices_flavor_companions": ["Cinnamon", "clove", "orange zest", "pecan", "maple", "dark cherry"],
+        "cheeses": ["Aged Gouda", "clothbound cheddar", "manchego"],
+        "cuisines": ["Southern barbecue", "roast pork dishes", "charcuterie", "holiday fare"]
+      },
+      "signatureTraits": ["The port cask finish pushes the bourbon toward berry, raisin, and maple tones without obscuring its bourbon core."],
+      "tags": ["finished", "port_cask"],
+      "whiskey": {
+        "displayTags": ["Finished", "Port Cask"],
+        "styleTerms": ["bourbon", "finished", "port cask", "wine cask", "kentucky straight bourbon"]
+      },
+      "research": {
+        "sourceTypesConsulted": ["Official producer pages", "whiskey review sites", "supporting retailer notes"],
+        "conflictsFound": "Finish length and sweetness were described differently across reviewers.",
+        "resolution": "Kept the repeated core of vanilla, caramel, red fruit, and restrained port influence.",
+        "confidence": "High",
+        "profileLevel": "Product-specific",
+        "ambiguityStatus": "Clear",
+        "caveats": []
+      },
+      "sourceRecord": {
+        "displayName": "Angel's Envy - Port Cask"
+      }
+    },
+    {
+      "id": "weller-special-reserve-family",
+      "name": "W.L. Weller Special Reserve Family Profile",
+      "family": "Whiskey",
+      "category": "Bourbon",
+      "subtype": "Wheated bourbon",
+      "producer": "Buffalo Trace Distillery",
+      "origin": { "country": "USA", "region": "Kentucky", "display": "Kentucky, USA" },
+      "strength": {
+        "display": "Commonly 45% ABV · 90 proof · release or market dependent",
+        "confirmation": "market-dependent",
+        "note": "Exact bottling context was not fully confirmed."
+      },
+      "tasting": {
+        "aroma": ["Soft vanilla", "honey", "sweet wheat", "light oak", "baked apple"],
+        "flavor": ["Caramel", "gentle cinnamon", "cream", "corn sweetness", "quiet oak"],
+        "body": "Medium body with a plush, accessible texture.",
+        "finish": "Soft, medium-short finish with wheat sweetness and mild oak spice."
+      },
+      "pairings": {
+        "proteins": ["Roast chicken", "ham", "fried chicken"],
+        "spices_flavor_companions": ["Honey butter", "cinnamon", "apple glaze"],
+        "cheeses": ["Young cheddar", "havarti"],
+        "cuisines": ["Southern comfort food", "barbecue", "holiday sides"]
+      },
+      "signatureTraits": ["A round, sweet-leaning wheated bourbon profile useful when the exact bottling is inferred rather than fully locked to a single release."],
+      "tags": ["wheated", "likely_interpretation", "market_variation"],
+      "whiskey": {
+        "displayTags": ["Wheated", "Likely Interpretation", "Market Variation"],
+        "styleTerms": ["wheated bourbon", "bourbon", "weller", "family profile"]
+      },
+      "research": {
+        "sourceTypesConsulted": ["Producer family information", "specialist whiskey references", "secondary retailer listings"],
+        "conflictsFound": "Specific release naming and available proof varied across source contexts.",
+        "resolution": "Presented a family-level profile and flagged the record as interpretation-led rather than exact-release specific.",
+        "confidence": "Medium",
+        "profileLevel": "Product-family level",
+        "ambiguityStatus": "Likely interpretation",
+        "caveats": ["market_variation", "likely_interpretation"]
+      },
+      "sourceRecord": {
+        "displayName": "Weller Special Reserve",
+        "normalizedFrom": "Weller reserve"
+      }
+    },
+    {
+      "id": "elijah-craig-private-barrel",
+      "name": "Elijah Craig Private Barrel Pick",
+      "family": "Whiskey",
+      "category": "Bourbon",
+      "subtype": "Single barrel private barrel bourbon",
+      "producer": "Heaven Hill Distillery",
+      "origin": { "country": "USA", "region": "Kentucky", "display": "Kentucky, USA" },
+      "strength": {
+        "display": "ABV and proof vary by barrel pick",
+        "confirmation": "barrel-dependent",
+        "note": "Private barrel selections are barrel-specific and may differ substantially."
+      },
+      "tasting": {
+        "aroma": ["Caramel", "charred oak", "roasted peanut", "dark cherry"],
+        "flavor": ["Toffee", "vanilla", "cinnamon", "oak char", "dark fruit"],
+        "body": "Medium-full body with a denser barrel-led structure.",
+        "finish": "Medium-long finish, often more oak-driven than standard small batch releases."
+      },
+      "pairings": {
+        "proteins": ["Steak", "burnt ends", "smoked ribs"],
+        "spices_flavor_companions": ["Black pepper", "pecan", "charred orange"],
+        "cheeses": ["Aged cheddar", "smoked gouda"],
+        "cuisines": ["Barbecue", "steakhouse", "Southern smokehouse"]
+      },
+      "signatureTraits": ["A stronger oak-and-caramel Elijah Craig house profile with meaningful barrel-to-barrel drift."],
+      "tags": ["single_barrel", "private_barrel", "barrel_variation"],
+      "whiskey": {
+        "displayTags": ["Single Barrel", "Private Barrel", "Barrel Variation"],
+        "styleTerms": ["private barrel", "store pick", "single barrel bourbon", "barrel pick"]
+      },
+      "research": {
+        "sourceTypesConsulted": ["Producer single-barrel program notes", "private-pick retailer pages", "whiskey tasting references"],
+        "conflictsFound": "ABV, oak level, and fruit tone vary widely by barrel.",
+        "resolution": "Used a family-consistent Elijah Craig private-barrel baseline and foregrounded variation caveats.",
+        "confidence": "Medium",
+        "profileLevel": "Product-family level",
+        "ambiguityStatus": "Variant-dependent",
+        "caveats": ["private_barrel", "barrel_variation"]
+      },
+      "sourceRecord": {
+        "displayName": "Elijah Craig Private Barrel"
+      }
+    },
+    {
+      "id": "stagg-batch-profile",
+      "name": "Stagg Batch Profile",
+      "family": "Whiskey",
+      "category": "Bourbon",
+      "subtype": "Barrel proof bourbon",
+      "producer": "Buffalo Trace Distillery",
+      "origin": { "country": "USA", "region": "Kentucky", "display": "Kentucky, USA" },
+      "strength": {
+        "display": "Usually barrel proof; exact ABV and proof are batch dependent",
+        "confirmation": "batch-dependent",
+        "note": "Annual or periodic releases move in proof and flavor emphasis."
+      },
+      "tasting": {
+        "aroma": ["Dense caramel", "molasses", "dark cherry", "cocoa", "charred oak"],
+        "flavor": ["Fudge", "cola spice", "dark fruit", "brown sugar", "tobacco"],
+        "body": "Full-bodied, concentrated, and heat-carrying.",
+        "finish": "Long and forceful with dark sweetness and barrel spice."
+      },
+      "pairings": {
+        "proteins": ["Brisket", "lamb", "smoked sausage"],
+        "spices_flavor_companions": ["Clove", "allspice", "dark chocolate"],
+        "cheeses": ["Aged gouda", "blue cheese"],
+        "cuisines": ["Texas barbecue", "rich Southern fare"]
+      },
+      "signatureTraits": ["A high-intensity Buffalo Trace profile where proof and batch identity matter to the final read."],
+      "tags": ["barrel_proof", "batch_variation", "release_variation"],
+      "whiskey": {
+        "displayTags": ["Barrel Proof", "Batch Variation", "Release Variation"],
+        "styleTerms": ["barrel proof", "cask strength", "stagg", "batch release"]
+      },
+      "research": {
+        "sourceTypesConsulted": ["Official release pages", "batch trackers", "professional tasting references"],
+        "conflictsFound": "Descriptors shift by batch, particularly around fruit sweetness versus oak heat.",
+        "resolution": "Presented a stable Stagg profile core and attached batch/release caveats prominently.",
+        "confidence": "Medium",
+        "profileLevel": "Product-family level",
+        "ambiguityStatus": "Batch-dependent",
+        "caveats": ["batch_variation", "release_variation"]
+      },
+      "sourceRecord": {
+        "displayName": "Stagg"
+      }
+    },
+    {
+      "id": "nikka-yoichi-single-malt",
+      "name": "Nikka Yoichi Single Malt",
+      "family": "Whiskey",
+      "category": "Japanese whisky",
+      "subtype": "Japanese single malt",
+      "producer": "Nikka Whisky",
+      "origin": { "country": "Japan", "region": "Hokkaido", "display": "Hokkaido, Japan" },
+      "strength": {
+        "abv": 45,
+        "abvDisplay": "45% ABV",
+        "confirmation": "exact"
+      },
+      "tasting": {
+        "aroma": ["Apple skin", "smoke", "malt biscuit", "sea breeze"],
+        "flavor": ["Toffee", "citrus", "light peat", "salted caramel", "nutmeg"],
+        "body": "Medium body with crisp, savory lift.",
+        "finish": "Medium-long with smoke, malt, and saline brightness."
+      },
+      "pairings": {
+        "proteins": ["Grilled salmon", "yakitori", "scallops"],
+        "spices_flavor_companions": ["Yuzu", "sesame", "white pepper"],
+        "cheeses": ["Comte", "aged mimolette"],
+        "cuisines": ["Japanese seafood", "izakaya plates", "clean grilled dishes"]
+      },
+      "signatureTraits": ["Combines fruit precision with a light smoky coastal edge rather than heavy peat."],
+      "tags": ["single_malt"],
+      "whiskey": {
+        "displayTags": ["Single Malt"],
+        "styleTerms": ["japanese whisky", "single malt", "yoichi"]
+      },
+      "research": {
+        "sourceTypesConsulted": ["Producer pages", "technical sheets", "specialist whisky references"],
+        "conflictsFound": "Minor variation in the prominence of smoke and salinity across tasters.",
+        "resolution": "Used descriptors repeated across official and specialist references.",
+        "confidence": "High",
+        "profileLevel": "Product-specific",
+        "ambiguityStatus": "Clear",
+        "caveats": []
+      },
+      "sourceRecord": {
+        "displayName": "Nikka Yoichi Single Malt"
+      }
+    },
+    {
+      "id": "whiskey-flight-foundations",
+      "name": "American Whiskey Foundations Flight",
+      "family": "Whiskey",
+      "category": "Whiskey Flight",
+      "subtype": "Curated comparative whiskey grouping",
+      "producer": "House-curated flight",
+      "origin": { "display": "Multi-region comparative pour" },
+      "strength": {
+        "display": "Strength varies by pour",
+        "confirmation": "flight-dependent"
+      },
+      "tasting": {
+        "aroma": ["Vanilla", "rye spice", "toasted oak"],
+        "flavor": ["Structured contrast between sweet corn-rich bourbon and spicier rye-led pours"],
+        "body": "Comparative by design; encourages side-by-side contrast.",
+        "finish": "Varies by selected pours."
+      },
+      "pairings": {
+        "proteins": ["Charcuterie", "smoked nuts"],
+        "spices_flavor_companions": ["Dark chocolate", "candied pecans"],
+        "cheeses": ["Aged cheddar", "gouda"],
+        "cuisines": ["Tasting flight service", "small plate programs"]
+      },
+      "signatureTraits": ["Designed to show category contrast rather than describe one bottle as a singular product."],
+      "tags": ["flight"],
+      "whiskey": {
+        "displayTags": ["Flight"],
+        "styleTerms": ["whiskey flight", "comparative tasting", "bourbon and rye"]
+      },
+      "research": {
+        "sourceTypesConsulted": ["House menu structure", "category reference notes"],
+        "conflictsFound": "Flight composition may rotate.",
+        "resolution": "Treated the entry as a flight-level concept with explicit non-bottle framing.",
+        "confidence": "Medium",
+        "profileLevel": "Category-level",
+        "ambiguityStatus": "Rotating composition",
+        "caveats": ["release_variation"]
+      },
+      "sourceRecord": {
+        "displayName": "Whiskey Flight"
+      }
+    },
+    {
+      "id": "laurent-perrier-la-cuvee",
+      "name": "Laurent-Perrier La Cuvee Brut Champagne NV",
+      "family": "Wine",
+      "category": "Sparkling wine",
+      "varietal": "Champagne, brut",
+      "producer": "Laurent-Perrier",
+      "origin": { "country": "France", "region": "Champagne", "display": "Champagne, France" },
+      "strength": {
+        "display": "12% ABV · commonly cited; minor source variation to 12.5%",
+        "confirmation": "approximate"
+      },
+      "tasting": {
+        "aroma": ["Fresh citrus", "white flowers", "pear", "white peach", "light pastry", "chalk"],
+        "flavor": ["Bright lemon", "orchard fruit", "brioche", "mineral chalk"],
+        "body": "Light- to medium-bodied with a very fine mousse; linear and elegant.",
+        "finish": "Clean, persistent, and citrus-led with delicate pastry and chalk lingering."
+      },
+      "pairings": {
+        "proteins": ["Shellfish", "oysters", "sushi", "roast chicken", "veal scallopini"],
+        "spices_flavor_companions": ["Lemon zest", "chive", "tarragon", "white pepper", "toasted almonds"],
+        "cheeses": ["Brillat-Savarin", "young goat cheese", "triple-cream cheeses"],
+        "cuisines": ["French seafood", "raw bar", "sushi", "light Mediterranean dishes"]
+      },
+      "signatureTraits": ["Chardonnay-led freshness plus fine, persistent mousse make it more lifted and precise than many richer NV Champagnes."],
+      "tags": [],
+      "research": {
+        "sourceTypesConsulted": ["Official producer page", "technical details", "retailer notes", "merchant notes"],
+        "conflictsFound": "Some pages listed ABV between 12% and 12.5%.",
+        "resolution": "Used 12% as the most consistent figure while preserving the minor discrepancy in the strength display.",
+        "confidence": "High",
+        "profileLevel": "Product-specific",
+        "ambiguityStatus": "Clear",
+        "caveats": []
+      },
+      "sourceRecord": {
+        "displayName": "Laurent Perrier (Brut Champagne)"
+      }
+    },
+    {
+      "id": "the-seeker-pinot-noir",
+      "name": "The Seeker Pinot Noir",
+      "family": "Wine",
+      "category": "Red wine",
+      "varietal": "Pinot Noir",
+      "producer": "The Seeker",
+      "origin": { "country": "France", "region": "Pays d'Oc", "display": "Pays d'Oc, France" },
+      "strength": {
+        "display": "ABV varies by vintage",
+        "confirmation": "release-dependent"
+      },
+      "tasting": {
+        "aroma": ["Red cherry", "raspberry", "dried herbs", "light earth"],
+        "flavor": ["Juicy red fruit", "tea spice", "subtle oak", "forest floor"],
+        "body": "Light- to medium-bodied with silky tannin.",
+        "finish": "Clean, red-fruited, and gently savory."
+      },
+      "pairings": {
+        "proteins": ["Duck breast", "roast chicken", "salmon"],
+        "spices_flavor_companions": ["Thyme", "mushroom", "cranberry"],
+        "cheeses": ["Brie", "tomme"],
+        "cuisines": ["Bistro fare", "roast poultry", "mushroom dishes"]
+      },
+      "signatureTraits": ["A corrected-display-name example where the final profile preserves likely source intent while exposing normalization context."],
+      "tags": [],
+      "research": {
+        "sourceTypesConsulted": ["Producer and retailer references", "wine profile summaries"],
+        "conflictsFound": "The source list appears to have used an imperfect name string.",
+        "resolution": "Normalized the display to The Seeker Pinot Noir and retained the source-name caveat.",
+        "confidence": "Medium",
+        "profileLevel": "Product-specific",
+        "ambiguityStatus": "Normalized from imperfect naming",
+        "caveats": ["likely_interpretation"]
+      },
+      "sourceRecord": {
+        "displayName": "The Seeker Pinot Noir",
+        "normalizedFrom": "Beeker"
+      }
+    },
+    {
+      "id": "belvedere-organic-vodka",
+      "name": "Belvedere Organic Vodka",
+      "family": "Spirit",
+      "category": "Vodka",
+      "subtype": "Polish rye vodka",
+      "producer": "Belvedere",
+      "origin": { "country": "Poland", "display": "Poland" },
+      "strength": {
+        "abv": 40,
+        "abvDisplay": "40% ABV",
+        "confirmation": "exact"
+      },
+      "tasting": {
+        "aroma": ["Subtle vanilla", "cream", "faint floral rye notes", "almond", "white pepper"],
+        "flavor": ["Soft vanilla", "cream", "light rye spice", "almond", "peppery minerality"],
+        "body": "Medium body; round, rich, velvety texture.",
+        "finish": "Smooth with almond, cream, and white pepper lingering."
+      },
+      "pairings": {
+        "proteins": ["Smoked salmon", "caviar service", "roast chicken", "oysters"],
+        "spices_flavor_companions": ["Dill", "white pepper", "chive", "lemon zest"],
+        "cheeses": ["Fresh goat cheese", "triple-cream brie", "mild sheep’s milk cheese"],
+        "cuisines": ["Polish", "Scandinavian", "modern seafood"]
+      },
+      "signatureTraits": ["Structured rye vodka with more texture and spice than a truly neutral style."],
+      "tags": [],
+      "research": {
+        "sourceTypesConsulted": ["Official producer page", "brand education sheet", "specialist tasting guide", "supporting retailer listing"],
+        "conflictsFound": "Minor variation around secondary fruit and spice descriptors.",
+        "resolution": "Weighted official producer notes and retained only repeated secondary descriptors.",
+        "confidence": "High",
+        "profileLevel": "Product-specific",
+        "ambiguityStatus": "Clear",
+        "caveats": []
+      },
+      "sourceRecord": {
+        "displayName": "Belvedere"
+      }
+    },
+    {
+      "id": "black-magic-lemonade",
+      "name": "Black Magic Lemonade",
+      "family": "Cocktail",
+      "category": "Cocktail",
+      "subtype": "Bourbon blackberry lemonade-style house cocktail",
+      "producer": "Voodoo Bayou",
+      "origin": { "country": "USA", "region": "Florida", "display": "Florida, USA" },
+      "strength": {
+        "display": "Not clearly confirmed",
+        "confirmation": "not-clearly-confirmed"
+      },
+      "tasting": {
+        "aroma": ["Fresh blackberry", "bright lemon peel", "bourbon vanilla", "caramel", "rosemary smoke"],
+        "flavor": ["Tart-sweet blackberry lemonade", "light caramelized bourbon", "savory resinous rosemary"],
+        "body": "Medium-light; juicy up front, then slightly drier and more aromatic mid-palate.",
+        "finish": "Medium; lemon zest, dark berry skin, gentle oak sweetness, and smoky rosemary."
+      },
+      "pairings": {
+        "proteins": ["Smoked pork", "grilled chicken", "duck breast", "blackened shrimp"],
+        "spices_flavor_companions": ["Rosemary", "cracked black pepper", "charred citrus", "mild Cajun spice"],
+        "cheeses": ["Aged cheddar", "goat cheese", "triple-cream brie"],
+        "cuisines": ["Southern", "Cajun", "barbecue", "grilled American fare"]
+      },
+      "signatureTraits": ["The standout contrast is tart blackberry-lemon brightness against bourbon warmth and torched rosemary smoke."],
+      "tags": [],
+      "research": {
+        "sourceTypesConsulted": ["Official Voodoo Bayou menu", "social post confirming smoky angle"],
+        "conflictsFound": "No major ingredient conflict found.",
+        "resolution": "Used the official menu ingredient list first and social copy only to confirm smoky rosemary emphasis.",
+        "confidence": "High",
+        "profileLevel": "Product-specific",
+        "ambiguityStatus": "Clear",
+        "caveats": []
+      },
+      "sourceRecord": {
+        "displayName": "Black Magic Lemonade"
+      }
+    },
+    {
+      "id": "guinness-draught",
+      "name": "Guinness Draught",
+      "family": "Beer",
+      "category": "Stout",
+      "subtype": "Nitro dry stout",
+      "producer": "Guinness",
+      "origin": { "country": "Ireland", "display": "Ireland" },
+      "strength": {
+        "display": "4.2% ABV in many markets · market dependent",
+        "confirmation": "market-dependent"
+      },
+      "tasting": {
+        "aroma": ["Roasted barley", "cocoa", "coffee foam"],
+        "flavor": ["Dry roast", "mild chocolate", "espresso", "dark grain bitterness"],
+        "body": "Light-medium body with creamy nitro texture.",
+        "finish": "Dry, roasty, and smooth."
+      },
+      "pairings": {
+        "proteins": ["Oysters", "beef pie", "sausages"],
+        "spices_flavor_companions": ["Brown bread", "coffee rub", "malt vinegar"],
+        "cheeses": ["Cheddar", "stilton"],
+        "cuisines": ["Pub fare", "Irish comfort food"]
+      },
+      "signatureTraits": ["Creamy presentation despite modest ABV and a notably dry roast profile."],
+      "tags": [],
+      "research": {
+        "sourceTypesConsulted": ["Producer pages", "beer reference summaries"],
+        "conflictsFound": "ABV can differ by market.",
+        "resolution": "Displayed a common benchmark and flagged market dependence.",
+        "confidence": "High",
+        "profileLevel": "Product-specific",
+        "ambiguityStatus": "Clear",
+        "caveats": ["market_variation"]
+      },
+      "sourceRecord": {
+        "displayName": "Guinness Draught"
+      }
+    },
+    {
+      "id": "high-noon-pineapple",
+      "name": "High Noon Pineapple",
+      "family": "RTD",
+      "category": "Ready-to-drink",
+      "subtype": "Vodka soda with pineapple",
+      "producer": "High Noon",
+      "origin": { "country": "USA", "display": "USA" },
+      "strength": {
+        "abv": 4.5,
+        "abvDisplay": "4.5% ABV",
+        "confirmation": "exact"
+      },
+      "tasting": {
+        "aroma": ["Fresh pineapple", "light citrus", "clean soda lift"],
+        "flavor": ["Bright pineapple", "clean vodka base", "light sweetness"],
+        "body": "Light-bodied and crisp.",
+        "finish": "Short, clean, tropical finish."
+      },
+      "pairings": {
+        "proteins": ["Fish tacos", "shrimp skewers"],
+        "spices_flavor_companions": ["Lime", "tajin", "mint"],
+        "cheeses": ["Fresh queso", "mild feta"],
+        "cuisines": ["Beach snacks", "light Tex-Mex"]
+      },
+      "signatureTraits": ["An RTD entry kept concise and tasting-led instead of presenting canned-beverage marketing language."],
+      "tags": [],
+      "research": {
+        "sourceTypesConsulted": ["Producer packaging info", "supporting product listings"],
+        "conflictsFound": "Flavor detail is thinner than in full spirits entries.",
+        "resolution": "Kept the profile intentionally compact while preserving the same overall information architecture.",
+        "confidence": "Medium",
+        "profileLevel": "Product-specific",
+        "ambiguityStatus": "Clear",
+        "caveats": []
+      },
+      "sourceRecord": {
+        "displayName": "High Noon Pineapple"
+      }
+    },
+    {
+      "id": "seedlip-grove-42",
+      "name": "Seedlip Grove 42",
+      "family": "Mocktail",
+      "category": "Mocktail",
+      "subtype": "Citrus-led non-alcoholic spirit base",
+      "producer": "Seedlip",
+      "origin": { "country": "United Kingdom", "display": "United Kingdom" },
+      "strength": {
+        "display": "0.0% ABV",
+        "confirmation": "exact"
+      },
+      "tasting": {
+        "aroma": ["Orange peel", "lemongrass", "ginger"],
+        "flavor": ["Citrus zest", "herbal brightness", "dry spice"],
+        "body": "Light-bodied with a dry, botanical shape.",
+        "finish": "Clean citrus and ginger fade."
+      },
+      "pairings": {
+        "proteins": ["Grilled prawns", "salads"],
+        "spices_flavor_companions": ["Mint", "tonic", "grapefruit"],
+        "cheeses": ["Fresh chèvre"],
+        "cuisines": ["Light brunch plates", "garden-forward dishes"]
+      },
+      "signatureTraits": ["Shows how non-alcoholic entries can live in the same tasting-reference system without recipe or retail framing."],
+      "tags": [],
+      "research": {
+        "sourceTypesConsulted": ["Producer information", "NA beverage references"],
+        "conflictsFound": "None material.",
+        "resolution": "Used a compact sensory profile aligned with the platform’s tasting-first design.",
+        "confidence": "High",
+        "profileLevel": "Product-specific",
+        "ambiguityStatus": "Clear",
+        "caveats": []
+      },
+      "sourceRecord": {
+        "displayName": "Seedlip Grove 42"
+      }
+    },
+    {
+      "id": "mexican-coke",
+      "name": "Mexican Coca-Cola",
+      "family": "Soft Drink",
+      "category": "Soft drink",
+      "subtype": "Cane sugar cola",
+      "producer": "The Coca-Cola Company",
+      "origin": { "country": "Mexico", "display": "Mexico" },
+      "strength": {
+        "display": "Non-alcoholic",
+        "confirmation": "exact"
+      },
+      "tasting": {
+        "aroma": ["Cola spice", "caramel", "citrus oil"],
+        "flavor": ["Classic cola sweetness", "spice", "bright acidity"],
+        "body": "Medium body with lively carbonation.",
+        "finish": "Sweet-spiced and refreshing."
+      },
+      "pairings": {
+        "proteins": ["Burgers", "fried chicken", "tacos al pastor"],
+        "spices_flavor_companions": ["Lime", "salt", "chili"],
+        "cheeses": ["Jack cheese", "queso fresco"],
+        "cuisines": ["Street food", "casual grilled fare"]
+      },
+      "signatureTraits": ["Handled as a tasting reference for pairing and service, not as a product review."],
+      "tags": [],
+      "research": {
+        "sourceTypesConsulted": ["Packaging references", "food-and-beverage summaries"],
+        "conflictsFound": "Sweetener and packaging context vary by market and importer.",
+        "resolution": "Focused on the common cane-sugar service expectation while noting market sensitivity where applicable.",
+        "confidence": "Medium",
+        "profileLevel": "Product-family level",
+        "ambiguityStatus": "Market-dependent",
+        "caveats": ["market_variation"]
+      },
+      "sourceRecord": {
+        "displayName": "Mexican Coke"
+      }
+    },
+    {
+      "id": "san-pellegrino",
+      "name": "S.Pellegrino Sparkling Natural Mineral Water",
+      "family": "Water",
+      "category": "Water",
+      "subtype": "Sparkling mineral water",
+      "producer": "S.Pellegrino",
+      "origin": { "country": "Italy", "display": "Italy" },
+      "strength": {
+        "display": "Non-alcoholic",
+        "confirmation": "exact"
+      },
+      "tasting": {
+        "aroma": ["Clean mineral lift"],
+        "flavor": ["Mineral sparkle", "gentle salinity", "dry finish"],
+        "body": "Light body with persistent carbonation.",
+        "finish": "Crisp and mineral."
+      },
+      "pairings": {
+        "proteins": ["Raw bar", "light fish dishes"],
+        "spices_flavor_companions": ["Citrus", "fresh herbs"],
+        "cheeses": ["Fresh mozzarella"],
+        "cuisines": ["Universal table service"]
+      },
+      "signatureTraits": ["Included as part of a complete beverage reference library so non-alcoholic service feels native, not bolted on."],
+      "tags": [],
+      "research": {
+        "sourceTypesConsulted": ["Producer information", "table-service references"],
+        "conflictsFound": "None material.",
+        "resolution": "Presented a brief service-oriented tasting read.",
+        "confidence": "High",
+        "profileLevel": "Product-specific",
+        "ambiguityStatus": "Clear",
+        "caveats": []
+      },
+      "sourceRecord": {
+        "displayName": "S.Pellegrino"
+      }
+    }
+  ]
+}
