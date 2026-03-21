@@ -6,7 +6,7 @@
     <title>Nightcap Library</title>
     <meta
       name="description"
-      content="A premium dark tasting-reference library for wines, spirits, cocktails, beer, RTD, mocktails, soft drinks, water, and whiskey."
+      content="A premium dark tasting-reference library with 300+ drink profiles spanning whiskey, wine, spirits, cocktails, beer, and more."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,36 +22,35 @@
         <div class="hero-copy-block">
           <div class="topbar">
             <p class="eyebrow">Nightcap Library</p>
-            <span class="topbar-pill">Local JSON · GitHub Pages · No backend</span>
+            <span class="topbar-pill">Full catalog · 300+ profiles · Local JSON</span>
           </div>
-          <h1>Modern tasting dashboard for deep drink profiles.</h1>
+          <h1>Deep drink profiles at your fingertips.</h1>
           <p class="hero-copy">
-            Search a refined local archive of wines, spirits, cocktails, beer, RTD, mocktails,
-            soft drinks, water, and whiskey—with exact tasting notes up front and research caveats
-            just below the fold.
+            Browse a curated archive of whiskeys, wines, spirits, cocktails, beer, and more—with
+            detailed tasting notes, food pairings, and research provenance for every entry.
           </p>
           <div class="hero-chip-row">
             <span class="hero-chip">Whiskey-aware taxonomy</span>
             <span class="hero-chip">ABV / proof caveats</span>
-            <span class="hero-chip">Ambiguity & confidence badges</span>
+            <span class="hero-chip">Confidence & ambiguity badges</span>
           </div>
         </div>
 
         <div class="hero-side-grid">
-          <section class="metric-card accent">
-            <span class="metric-label">Primary flow</span>
-            <strong>Browse → open → return</strong>
-            <p>Search, read a profile, and keep your library state intact.</p>
+          <section class="metric-card accent" id="metricTotal">
+            <span class="metric-label">Total profiles</span>
+            <strong class="metric-value">—</strong>
+            <p>Full tasting breakdowns across every category.</p>
           </section>
-          <section class="metric-card">
-            <span class="metric-label">Reference mode</span>
-            <strong>Tasting first</strong>
-            <p>Methodology stays available, but secondary to sensory usefulness.</p>
+          <section class="metric-card" id="metricFamilies">
+            <span class="metric-label">Drink families</span>
+            <strong class="metric-value">—</strong>
+            <p>Whiskey, Wine, Spirit, Cocktail, Beer, and more.</p>
           </section>
-          <section class="metric-card">
-            <span class="metric-label">Whiskey support</span>
-            <strong>Families, styles, caveats</strong>
-            <p>Built for flights, picks, cask strength, batch shifts, and interpretation notes.</p>
+          <section class="metric-card" id="metricConfidence">
+            <span class="metric-label">High confidence</span>
+            <strong class="metric-value">—</strong>
+            <p>Profiles anchored to primary official sources.</p>
           </section>
         </div>
       </header>
@@ -67,12 +66,13 @@
               <p class="section-label">Library controls</p>
               <h2 class="toolbar-title">Search and filter the archive</h2>
             </div>
-            <div class="toolbar-note">Fast local search across taxonomy, tasting notes, and whiskey style terms.</div>
+            <div class="toolbar-note">Search across names, producers, tasting notes, styles, and more.</div>
           </div>
 
           <label class="search-field">
             <span class="sr-only">Search drinks</span>
-            <input id="searchInput" type="search" placeholder="Search name, producer, whiskey style, flavor note…" />
+            <svg class="search-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8.5" cy="8.5" r="5.5"/><line x1="12.5" y1="12.5" x2="18" y2="18"/></svg>
+            <input id="searchInput" type="search" placeholder="Search name, producer, flavor, style…" autocomplete="off" />
           </label>
           <div id="familyFilters" class="filter-row" aria-label="Family filters"></div>
           <div id="categoryFilters" class="filter-row secondary" aria-label="Category filters"></div>
@@ -83,16 +83,32 @@
             <p class="section-label">Library</p>
             <h2 id="resultHeading">Browse drinks</h2>
           </div>
-          <p id="resultSummary" class="muted"></p>
+          <div class="library-meta-right">
+            <p id="resultSummary" class="muted"></p>
+            <div class="sort-controls">
+              <label class="sr-only" for="sortSelect">Sort by</label>
+              <select id="sortSelect" class="sort-select">
+                <option value="name">A–Z</option>
+                <option value="name-desc">Z–A</option>
+                <option value="family">Family</option>
+                <option value="confidence">Confidence</option>
+              </select>
+            </div>
+          </div>
         </section>
 
         <section id="cardGrid" class="card-grid" aria-live="polite"></section>
+
+        <div id="paginationControls" class="pagination-controls"></div>
       </section>
     </template>
 
     <template id="detail-template">
       <article class="detail-view">
-        <button id="backButton" class="back-button">← Back to library</button>
+        <button id="backButton" class="back-button">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="12,4 6,10 12,16"/></svg>
+          Back to library
+        </button>
         <section class="detail-hero dashboard-panel">
           <div class="detail-title-row">
             <div>
@@ -124,7 +140,7 @@
           </div>
 
           <aside class="secondary-column">
-            <details class="info-card research-card">
+            <details class="info-card research-card" open>
               <summary>
                 <div>
                   <p class="section-label">Secondary context</p>
