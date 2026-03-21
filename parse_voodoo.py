@@ -77,15 +77,21 @@ def determine_family(category, subtype='', name=''):
     sub_lower = subtype.lower() if subtype else ''
     name_lower = name.lower() if name else ''
     
-    if 'cocktail' in cat_lower or 'cocktail' in sub_lower:
-        return 'Cocktail'
+    if 'ready-to-drink' in cat_lower or 'hard seltzer' in cat_lower or 'rtd' in cat_lower or 'canned cocktail' in cat_lower:
+        return 'RTD'
     if 'mocktail' in cat_lower or 'mocktail' in sub_lower or 'non-alcoholic cocktail' in cat_lower:
         return 'Mocktail'
+    if 'cocktail' in cat_lower or 'cocktail' in sub_lower:
+        return 'Cocktail'
     if 'bourbon' in cat_lower or 'whiskey' in cat_lower or 'whisky' in cat_lower or 'rye' in cat_lower or 'scotch' in cat_lower:
         return 'Whiskey'
     if cat_lower in ('whiskey flight',):
         return 'Whiskey'
-    if 'wine' in cat_lower or 'champagne' in cat_lower or 'sparkling' in cat_lower or 'rose' in cat_lower:
+    if 'american whiskey' in cat_lower or 'american single malt' in cat_lower:
+        return 'Whiskey'
+    if 'single malt' in cat_lower or 'tennessee' in cat_lower:
+        return 'Whiskey'
+    if 'wine' in cat_lower or 'champagne' in cat_lower or 'sparkling' in cat_lower:
         return 'Wine'
     if 'vodka' in cat_lower or 'gin' in cat_lower or 'rum' in cat_lower or 'tequila' in cat_lower or 'mezcal' in cat_lower:
         return 'Spirit'
@@ -97,9 +103,7 @@ def determine_family(category, subtype='', name=''):
         return 'Beer'
     if 'pilsner' in cat_lower or 'wheat beer' in cat_lower or 'belgian' in cat_lower:
         return 'Beer'
-    if 'seltzer' in cat_lower or 'hard seltzer' in cat_lower or 'ready' in cat_lower:
-        return 'RTD'
-    if 'rtd' in cat_lower or 'canned cocktail' in cat_lower:
+    if 'seltzer' in cat_lower:
         return 'RTD'
     if 'water' in cat_lower:
         return 'Water'
@@ -109,10 +113,35 @@ def determine_family(category, subtype='', name=''):
         return 'Soft Drink'
     if 'tea' in cat_lower or 'non-alcoholic' in cat_lower or 'juice' in cat_lower:
         return 'Soft Drink'
-    if 'american whiskey' in cat_lower:
-        return 'Whiskey'
     
     return 'Spirit'
+
+
+def refine_wine_category(entry):
+    """Refine generic 'Wine' categories into Red wine, White wine, Rose wine based on subtype/varietal."""
+    if entry.get('category', '').lower() != 'wine':
+        return entry['category']
+    
+    sub = (entry.get('subtype') or '').lower()
+    name = (entry.get('name') or '').lower()
+    
+    rose_markers = ['rose', 'rosé', 'rosato']
+    if any(m in sub for m in rose_markers) or any(m in name for m in rose_markers):
+        return 'Rose wine'
+    
+    red_grapes = ['cabernet', 'merlot', 'pinot noir', 'malbec', 'syrah', 'shiraz', 'tempranillo', 
+                  'zinfandel', 'sangiovese', 'nebbiolo', 'red blend', 'red wine', 'chianti',
+                  'bordeaux red', 'rioja', 'barolo', 'brunello']
+    if any(g in sub for g in red_grapes) or any(g in name for g in red_grapes):
+        return 'Red wine'
+    
+    white_grapes = ['chardonnay', 'sauvignon blanc', 'riesling', 'pinot grigio', 'pinot gris',
+                    'moscato', 'chenin blanc', 'viognier', 'white blend', 'white wine', 'gruner',
+                    'albarino', 'vermentino', 'gewurztraminer', 'semillon', 'trebbiano']
+    if any(g in sub for g in white_grapes) or any(g in name for g in white_grapes):
+        return 'White wine'
+    
+    return 'Wine'
 
 def parse_origin(raw):
     if not raw or 'not clearly confirmed' in raw.lower():
@@ -413,6 +442,10 @@ def convert_to_schema(raw_entry, source_file):
         entry_id = slugify(name)
     
     family = determine_family(category, subtype, name)
+    
+    refined_category = refine_wine_category({'category': category, 'subtype': subtype, 'name': name})
+    if refined_category != category:
+        category = refined_category
     
     origin = parse_origin(raw_entry.get('_origin_raw', ''))
     
