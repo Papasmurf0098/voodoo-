@@ -81,6 +81,10 @@ function enrichEntry(entry) {
     entry.origin?.display,
     ...(entry.tasting?.aroma || []),
     ...(entry.tasting?.flavor || []),
+    ...(entry.pairings?.proteins || []),
+    ...(entry.pairings?.spices_flavor_companions || []),
+    ...(entry.pairings?.cheeses || []),
+    ...(entry.pairings?.cuisines || []),
     ...(entry.whiskey?.styleTerms || []),
     ...(entry.tags || []),
     ...(entry.research?.caveats || []),
@@ -165,6 +169,8 @@ function renderLibrary() {
 
   searchInput.value = state.query;
   sortSelect.value = state.sort;
+
+  searchInput.placeholder = 'Search name, flavor, food pairing, cuisine…';
 
   let debounceTimer;
   searchInput.addEventListener('input', (event) => {
